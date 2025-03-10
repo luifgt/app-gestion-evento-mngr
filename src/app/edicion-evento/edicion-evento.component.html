@@ -1,0 +1,60 @@
+<section>
+    <form [formGroup]="eventForm" (ngSubmit)="updateEvent()">
+        <div class="titulos">
+            <h1> Edición de Evento </h1>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="id" formControlName="id">
+                  </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="titulo" formControlName="titulo" [disabled]="isDisabled">
+                  </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="mb-3">
+                    <label for="fecha_hora" class="form-label">Selecciona la fecha</label>
+                    <input type="datetime-local" class="form-control" id="fecha_hora" formControlName="fecha_hora">
+                  </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="form-floating-lg mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" id="descripcion" class="form-control" formControlName="descripcion">
+                </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <label for="id_ubicacion" class="form-label">Ubicación</label>
+                <select class="form-select mb-3" formControlName="id_ubicacion">
+                    @for(ubicacion of ubicaciones; track ubicacion){
+                        <option  [value]="ubicacion.id">
+                            {{ ubicacion.tipo }}
+                          </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="boton">
+                    <button type="submit" class="btn btn-secondary" [disabled]="eventForm.invalid"> Modificar </button>
+                    <button type="button" class="btn btn-secondary" (click)="reloadPage()"> Volver </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+

@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #F6FAFF;
+    background-image: url("../public/fondo.png");
+    background-position: calc(95% - 80px - 50px) center;
+    background-repeat: no-repeat; 
+    background-size: 300px auto;
+    background-attachment: fixed; 
+    min-height: 100vh; 
+}
+
