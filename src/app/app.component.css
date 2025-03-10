@@ -1,0 +1,41 @@
+.container-fluid {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+}
+
+.titulos{
+    width: 40%;
+    padding: 0px;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+    letter-spacing: 0rem;
+    font-weight: normal;
+    padding: 0;
+    text-align: center;
+}
+
+img{
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+}
+
+.contenido{
+    margin: 90px;
+}
+
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0rem;
+    line-height: 2.2rem;
+    letter-spacing: 0rem;
+    font-weight: normal;
+    padding: 0;
+    text-align: center;
+}

@@ -1,0 +1,76 @@
+<section>
+    <form [formGroup]="eventCreateForm" (ngSubmit)="createEvent()">
+        <div class="titulos">
+            <h1> Creación de Evento </h1>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Titulo</label>
+                    <div *ngIf="eventCreateForm.get('titulo')?.invalid && eventCreateForm.get('titulo')?.touched">
+                        <small *ngIf="eventCreateForm.get('titulo')?.hasError('required')" class="mensajeError">
+                            Debe diligenciar el título
+                        </small>
+                        <small *ngIf="eventCreateForm.get('titulo')?.hasError('maxlength')" class="mensajeError">
+                            El número máximo de caracteres es 100
+                        </small>
+                    </div>
+                    <input type="text" class="form-control" id="titulo" placeholder="Titulo" formControlName="titulo" required="true">
+                  </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="mb-3">
+                    <label for="fecha_hora" class="form-label">Selecciona la fecha</label>
+                    <div *ngIf="eventCreateForm.get('fecha_hora')?.invalid && eventCreateForm.get('fecha_hora')?.touched">
+                        <small class="mensajeError">Debe seleccionar la fecha.</small>
+                    </div>
+                    <input type="datetime-local" class="form-control" id="fecha_hora" formControlName="fecha_hora" maxlength="200" required="true">
+                </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="form-floating-lg mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <div *ngIf="eventCreateForm.get('descripcion')?.invalid && eventCreateForm.get('descripcion')?.touched">
+                        <small *ngIf="eventCreateForm.get('descripcion')?.hasError('required')" class="mensajeError">
+                            Debe diligenciar el descripcion
+                        </small>
+                        <small *ngIf="eventCreateForm.get('descripcion')?.hasError('maxlength')" class="mensajeError">
+                            El número máximo de caracteres es 200
+                        </small>
+                    </div>
+                    <input type="text" class="form-control" id="descripcion" placeholder="descripcion" formControlName="descripcion" required="true">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <label for="id_ubicacion" class="form-label">Ubicación</label>
+                <div *ngIf="eventCreateForm.get('id_ubicacion')?.invalid && eventCreateForm.get('id_ubicacion')?.touched">
+                    <small class="mensajeError">Debe seleccionar la ubicación.</small>
+                </div>
+                <select class="form-select mb-3" aria-label="Default select example" id="id_ubicacion" formControlName="id_ubicacion" required="true">
+                    <option selected>Seleccione una opción...</option>
+                    <option value="1">Bogotá</option>
+                    <option value="2">Medellín</option>
+                    <option value="3">Cali</option>
+                    <option value="4">Cartagena</option>
+                    <option value="5">Barranquilla</option>
+                    <option value="6">Bucaramanga</option>
+                  </select>
+            </div>
+        </div>
+        <div class="contenedor">
+            <div class="inputEvento">
+                <div class="boton">
+                    <button type="submit" class="btn btn-secondary" [disabled]="eventCreateForm.invalid"> Crear </button>
+                    <button type="button" class="btn btn-secondary" (click)="reloadPage()"> Volver </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

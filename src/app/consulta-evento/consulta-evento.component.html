@@ -1,0 +1,46 @@
+<section>
+  <div class="titulos">
+    <h1> Información de eventos </h1>
+  </div>
+  <div class="contenedor">
+    <div class="inputEvento">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(valor of valores; track valor){
+          <tr>
+            <td>{{ valor.id }}</td>
+            <td>{{ valor.titulo }}</td>
+            <td>{{ valor.fecha_hora }}</td>
+            <td>{{ valor.descripcion }}</td>
+            <td>{{ getNameUbication(valor.id_ubicacion) }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="editEvent(valor.id)"> Editar </button>
+            </td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="deleteEvent(valor.id)"> Eliminar </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="contenedor">
+    <div class="inputEvento">
+        <div class="boton">
+            <button type="submit" class="btn btn-secondary" (click)="createEvent()"> Crear Evento </button>
+        </div>
+    </div>
+</div>
+</section>
